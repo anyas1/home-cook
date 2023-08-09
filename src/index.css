@@ -100,7 +100,7 @@ button {
   .listingDetails,
   .category,
   .explore {
-    margin: 10rem;
+    margin: 5rem;
   }
 }
 
@@ -372,11 +372,11 @@ button {
 }
 
 .exploreCategories {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 .exploreCategories a {
-  width: 48%;
+  width: 75%;
 }
 
 .exploreCategoryImg {

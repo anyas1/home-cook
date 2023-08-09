@@ -75,8 +75,19 @@ function Listing() {
                 {listing.type}
             </p>
             <p>
+                Prep Time: {listing.prep_time}
+            </p>
+            <p>
+                Cook Time: {listing.cook_time}
+            </p>
+            <p>
                 Ingredients: {listing.ingredients}
             </p>
+            <p>
+                Instructions: {listing.instructions}
+            </p>
+            <br />
+            <br />
             {auth.currentUser?.uid !== listing.userRef && (
                 <Link to={`/contact/${listing.userRef}?listingName=${listing.name}`} className="primaryButton">
                     Contact Poster

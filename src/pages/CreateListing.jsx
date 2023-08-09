@@ -173,6 +173,22 @@ function CreateListings() {
             onClick={onMutate}>
               Entree
             </button>
+            <button
+            type='button'
+            className={type === 'side' ? 'formButtonActive' : 'formButton'}
+            id='type'
+            value='side'
+            onClick={onMutate}>
+              Side
+            </button>
+            <button
+            type='button'
+            className={type === 'dessert' ? 'formButtonActive' : 'formButton'}
+            id='type'
+            value='dessert'
+            onClick={onMutate}>
+              Dessert
+            </button>
           </div>
           <label className='formLabel'>Name</label>
           <input

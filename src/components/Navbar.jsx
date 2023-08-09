@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom"
 import {ReactComponent as RecipeIcon} from '../assets/svg/recipeIcon.svg'
-import {ReactComponent as ExploreIcon} from '../assets/svg/exploreIcon.svg'
+import {ReactComponent as HomeIcon} from '../assets/svg/homeIcon.svg'
 import {ReactComponent as PersonOutlineIcon} from '../assets/svg/personOutlineIcon.svg'
 
 
@@ -19,12 +19,12 @@ function Navbar() {
         <nav className="navbarNav">
             <ul className="navbarListItems">
                 <li className="navbarListItem" onClick={() => navigate('/')}>
-                    <ExploreIcon fill={pathMatchRoute('/') ? '#2c2c2c' : '#8f8f8f'} width='36px' height='36px' />
-                    <p className={pathMatchRoute('/') ? 'navbarListItemNameActive' : 'navbarListItemName'}>Explore</p>
+                    <HomeIcon fill={pathMatchRoute('/') ? '#2c2c2c' : '#8f8f8f'} width='36px' height='36px' />
+                    <p className={pathMatchRoute('/') ? 'navbarListItemNameActive' : 'navbarListItemName'}>Home</p>
                 </li>
-                <li className="navbarListItem" onClick={() => navigate('/recipes')}>
-                    <RecipeIcon fill={pathMatchRoute('/recipes') ? '#2c2c2c' : '#8f8f8f'} width='36px' height='36px' />
-                    <p className={pathMatchRoute('/recipes') ? 'navbarListItemNameActive' : 'navbarListItemName'}>Recipes</p>
+                <li className="navbarListItem" onClick={() => navigate('/explore')}>
+                    <RecipeIcon fill={pathMatchRoute('/explore') ? '#2c2c2c' : '#8f8f8f'} width='36px' height='36px' />
+                    <p className={pathMatchRoute('/explore') ? 'navbarListItemNameActive' : 'navbarListItemName'}>Explore</p>
                 </li>
                 <li className="navbarListItem" onClick={() => navigate('/profile')}>
                     <PersonOutlineIcon fill={pathMatchRoute('/profile') ? '#2c2c2c' : '#8f8f8f'} width='36px' height='36px' />

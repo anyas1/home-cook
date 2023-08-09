@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Explore from "./pages/Explore";
 import ForgotPassword from "./pages/ForgotPassword";
 import PrivateRoute from "./components/PrivateRoute";
-import Recipes from "./pages/Recipes";
+import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -21,8 +21,8 @@ function App() {
     <>
     <Router>
       <Routes>
-        <Route path='/' element={<Explore />} />
-        <Route path='/recipes' element={<Recipes />} />
+        <Route path='/explore' element={<Explore />} />
+        <Route path='/' element={<Home />} />
         <Route path='/category/:categoryName' element={<Category />} />
        <Route path = '/profile' element={<PrivateRoute />}>
           <Route path='/profile' element={<Profile />} />
