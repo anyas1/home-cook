@@ -16,7 +16,6 @@ function Home() {
           Therefore, if you enjoy cooking, baking, or just looking at pictures of delicious food items, please proceed to explore my Home Cooking App.
           <br />
           <br />
-          Questions and suggestions can be forwarded to: anyasanders1@gmail.com
         </p>
       </main>
       </div>

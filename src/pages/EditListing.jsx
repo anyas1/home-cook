@@ -2,14 +2,15 @@ import { useState, useEffect, useRef } from "react"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
 import {getStorage, ref, uploadBytesResumable, getDownloadURL} from 'firebase/storage'
 import { db } from "../firebase.config"
-import { useNavigate } from "react-router-dom"
-import { addDoc, collection, serverTimestamp } from "firebase/firestore"
+import { useNavigate, useParams } from "react-router-dom"
+import { updateDoc, doc, getDoc, serverTimestamp } from "firebase/firestore"
 import { toast } from "react-toastify"
 import {v4 as uuidv4} from 'uuid'
 import Spinner from "../components/Spinner"
 
-function CreateListings() {
+function EditListings() {
   const [loading, setLoading] = useState(false)
+  const [listing, setListing] = useState(false)
   const [formData, setFormData] = useState({
     type: 'appetizers',
     name: '',
@@ -27,8 +28,37 @@ function CreateListings() {
 
   const auth = getAuth()
   const navigate = useNavigate()
+  const params = useParams()
   const isMounted = useRef(true)
 
+//   Redirect if listing is not user's
+useEffect(() => {
+    if(listing && listing.userRef !== auth.currentUser.uid) {
+        toast.error('You cannot edit this recipe')
+        navigate('/')
+    }
+})
+
+
+//   Fetch Listing to edit
+  useEffect(() => {
+    setLoading(true)
+    const fetchListing = async () => {
+        const docRef = doc(db, 'listings', params.listingId)
+        const docSnap = await getDoc(docRef)
+        if(docSnap.exists()) {
+            setListing(docSnap.data())
+            setFormData({...docSnap.data() })
+            setLoading(false)
+        } else {
+            navigate('/')
+            toast.error('Listing does not exist')
+        }
+    }
+    fetchListing()
+  }, [params.listingId, navigate])
+
+//  Sets userREf to logged in user
   useEffect(() => {
     if(isMounted) {
       onAuthStateChanged(auth, (user) => {
@@ -72,6 +102,7 @@ function CreateListings() {
     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
     console.log('Upload is ' + progress + '% done');
+    // eslint-disable-next-line default-case
     switch (snapshot.state) {
       case 'paused':
         console.log('Upload is paused');
@@ -111,9 +142,9 @@ function CreateListings() {
 
     delete formDataCopy.images
 
-    // Save to db
-    const docRef = await addDoc(collection(db, 'listings'), formDataCopy)
-
+    // Update Listing
+    const docRef = doc(db, 'listings', params.listingId)
+    await updateDoc(docRef, formDataCopy)
     setLoading(false)
     toast.success('Recipe Saved')
     navigate(`/category/${formDataCopy.type}/${docRef.id}`)
@@ -151,7 +182,7 @@ function CreateListings() {
   return (
     <div className="profile">
       <header>
-        <p className="pageHeader">Create a recipe</p>
+        <p className="pageHeader">Edit your recipe</p>
       </header>
       <main>
         <form onSubmit={onSubmit}>
@@ -293,7 +324,7 @@ function CreateListings() {
             required
           />
           <button type='submit' className='primaryButton createListingButton'>
-            Post Recipe
+            Save Changes
           </button>
         </form>
       </main>
@@ -301,4 +332,4 @@ function CreateListings() {
   )
 }
 
-export default CreateListings
+export default EditListings
