@@ -58,48 +58,49 @@ function CreateListings() {
     }
 
     const storeImage = async (image) => {
-      return new Promise((resolve, reject) =>{
+      return new Promise((resolve, reject) => {
         const storage = getStorage()
-        const fileName = `${auth.currentUser.uid}=${image.name}-${uuidv4()}`
+        const fileName = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`
 
         const storageRef = ref(storage, 'images/' + fileName)
 
         const uploadTask = uploadBytesResumable(storageRef, image)
 
-        uploadTask.on('state_changed', 
-  (snapshot) => {
-    // Observe state change events such as progress, pause, and resume
-    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    console.log('Upload is ' + progress + '% done');
-    switch (snapshot.state) {
-      case 'paused':
-        console.log('Upload is paused');
-        break;
-      case 'running':
-        console.log('Upload is running');
-        break;
-    }
-  }, 
-  (error) => {
-    reject(error)
-  }, 
-  () => {
-    // Handle successful uploads on complete
-    // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-      resolve(downloadURL);
-    });
-  }
-);
+        uploadTask.on(
+          'state_changed',
+          (snapshot) => {
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            console.log('Upload is ' + progress + '% done')
+            switch (snapshot.state) {
+              case 'paused':
+                console.log('Upload is paused')
+                break
+              case 'running':
+                console.log('Upload is running')
+                break
+            }
+          },
+          (error) => {
+            reject(error)
+          },
+          () => {
+            // Handle successful uploads on complete
+            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+              resolve(downloadURL)
+            })
+          }
+        )
       })
     }
+
 
     const imgUrls = await Promise.all(
       [...images].map((image) => storeImage(image))
     ).catch(() => {
       setLoading(false)
-      toast.error('Images could not be uploaded')
+      toast.error('Images not uploaded')
       return
     })
 
@@ -179,15 +180,31 @@ function CreateListings() {
             id='type'
             value='sides'
             onClick={onMutate}>
-              Sides
+              Side
             </button>
             <button
             type='button'
-            className={type === 'dessert' ? 'formButtonActive' : 'formButton'}
+            className={type === 'desserts' ? 'formButtonActive' : 'formButton'}
             id='type'
             value='dessert'
             onClick={onMutate}>
               Dessert
+            </button>
+            <button
+            type='button'
+            className={type === 'drinks' ? 'formButtonActive' : 'formButton'}
+            id='type'
+            value='drinks'
+            onClick={onMutate}>
+              Drink
+            </button>
+            <button
+            type='button'
+            className={type === 'snacks' ? 'formButtonActive' : 'formButton'}
+            id='type'
+            value='snacks'
+            onClick={onMutate}>
+              Snack
             </button>
           </div>
           <label className='formLabel'>Name</label>
