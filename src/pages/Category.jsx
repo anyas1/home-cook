@@ -80,36 +80,6 @@ function Category() {
         }
 
     }
- const fetchListings = async () => {
-            try {
-                // Get reference
-                const listingsRef = collection(db, 'listings')
-
-                // Create query
-                const q = query(listingsRef, where('type', '==', params.categoryName), orderBy('timestamp', 'desc'), limit(10))
-
-                // Execute query
-                const querySnap = await getDocs(q)
-
-                const lastVisible = querySnap.docs[querySnap.docs.length-1]
-                setLastFetchedListing(lastVisible)
-
-                const listings = []
-
-                querySnap.forEach((doc) => {
-                    return listings.push({
-                        id: doc.id,
-                        data: doc.data()
-                    })
-                })
-
-                setListings(listings)
-                setLoading(false)
-            } catch (error) {
-                toast.error('Could not fetch listings')
-            }
-
-        }
 
 
   return (
@@ -118,8 +88,10 @@ function Category() {
             <p className="pageHeader">
                 {params.categoryName === 'appetizers' && 'Appetizers'}
                 {params.categoryName === 'entrees' && 'Entrees'}
-                {params.categoryName === 'dessert' && 'Desserts'}
-                {params.categoryName === 'Side' && 'Side Dishes'}
+                {params.categoryName === 'desserts' && 'Desserts'}
+                {params.categoryName === 'sides' && 'Side Dishes'}
+                {params.categoryName === 'snacks' && 'Snacks'}
+                {params.categoryName === 'drinks' && 'Drinks'}
             </p>
         </header>
         {loading ? <Spinner /> : listings && listings.length > 0 ? <>

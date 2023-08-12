@@ -469,6 +469,15 @@ button {
   font-size: 0.7rem;
 }
 
+.homeImg {
+  min-height: 115px;
+  height: 30vw;
+  width: 100%;
+  border-radius: 1.5rem;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
 .loadMore {
   cursor: pointer;
   width: 8rem;

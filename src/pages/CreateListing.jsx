@@ -79,6 +79,8 @@ function CreateListings() {
       case 'running':
         console.log('Upload is running');
         break;
+        default:
+          break
     }
   }, 
   (error) => {
@@ -179,15 +181,31 @@ function CreateListings() {
             id='type'
             value='sides'
             onClick={onMutate}>
-              Sides
+              Side
             </button>
             <button
             type='button'
-            className={type === 'dessert' ? 'formButtonActive' : 'formButton'}
+            className={type === 'desserts' ? 'formButtonActive' : 'formButton'}
             id='type'
             value='dessert'
             onClick={onMutate}>
               Dessert
+            </button>
+            <button
+            type='button'
+            className={type === 'drinks' ? 'formButtonActive' : 'formButton'}
+            id='type'
+            value='drinks'
+            onClick={onMutate}>
+              Drink
+            </button>
+            <button
+            type='button'
+            className={type === 'snacks' ? 'formButtonActive' : 'formButton'}
+            id='type'
+            value='snacks'
+            onClick={onMutate}>
+              Snack
             </button>
           </div>
           <label className='formLabel'>Name</label>
