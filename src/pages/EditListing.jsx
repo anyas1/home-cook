@@ -220,6 +220,22 @@ useEffect(() => {
             onClick={onMutate}>
               Dessert
             </button>
+            <button
+            type='button'
+            className={type === 'sides' ? 'formButtonActive' : 'formButton'}
+            id='type'
+            value='sides'
+            onClick={onMutate}>
+              Sides
+            </button>
+            <button
+            type='button'
+            className={type === 'drinks' ? 'formButtonActive' : 'formButton'}
+            id='type'
+            value='drinks'
+            onClick={onMutate}>
+              Drinks
+            </button>
           </div>
           <label className='formLabel'>Name</label>
           <input

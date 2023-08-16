@@ -79,8 +79,7 @@ function CreateListings() {
       case 'running':
         console.log('Upload is running');
         break;
-        default:
-          break
+        default: break
     }
   }, 
   (error) => {
@@ -97,12 +96,11 @@ function CreateListings() {
       })
     }
 
-
     const imgUrls = await Promise.all(
       [...images].map((image) => storeImage(image))
     ).catch(() => {
       setLoading(false)
-      toast.error('Images not uploaded')
+      toast.error('Images could not be uploaded')
       return
     })
 
@@ -182,15 +180,23 @@ function CreateListings() {
             id='type'
             value='sides'
             onClick={onMutate}>
-              Side
+              Sides
             </button>
             <button
             type='button'
-            className={type === 'desserts' ? 'formButtonActive' : 'formButton'}
+            className={type === 'dessert' ? 'formButtonActive' : 'formButton'}
             id='type'
             value='dessert'
             onClick={onMutate}>
-              Dessert
+              Desserts
+            </button>
+            <button
+            type='button'
+            className={type === 'sides' ? 'formButtonActive' : 'formButton'}
+            id='type'
+            value='sides'
+            onClick={onMutate}>
+              Sides
             </button>
             <button
             type='button'
@@ -198,15 +204,7 @@ function CreateListings() {
             id='type'
             value='drinks'
             onClick={onMutate}>
-              Drink
-            </button>
-            <button
-            type='button'
-            className={type === 'snacks' ? 'formButtonActive' : 'formButton'}
-            id='type'
-            value='snacks'
-            onClick={onMutate}>
-              Snack
+              Drinks
             </button>
           </div>
           <label className='formLabel'>Name</label>
@@ -276,6 +274,7 @@ function CreateListings() {
             minLength='10'
             required
           />
+          <button id="additionalIngredient" type="submit" class="btn btn-primary">Add Ingredient</button>
           <label className='formLabel'>Instructions</label>
           <textarea
             className='formInputName'
@@ -307,7 +306,7 @@ function CreateListings() {
             id='images'
             onChange={onMutate}
             max='6'
-            accept='.jpg,.png,.jpeg'
+            accept='.jpg,.png,.jpeg,'
             multiple
             required
           />
