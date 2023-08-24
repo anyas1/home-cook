@@ -545,8 +545,6 @@ button {
 
 .listingIngredients{
   padding: 0.25rem 0.5rem;
-  background-color: #ffff;
-  border-style: solid;
   color: #000000;
   display: flex;
   font-weight: 6000;
@@ -632,7 +630,7 @@ button {
 }
 
 .profile {
-  margin-bottom: 10rem;
+  margin-bottom: 15rem;
 }
 
 .profileHeader {

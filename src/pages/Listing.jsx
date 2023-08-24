@@ -81,11 +81,8 @@ function Listing() {
                 Cook Time: {listing.cook_time}
             </p>
             <p>
-            Ingredients:
+            Ingredients:  {listing.ingredients}
             </p>
-            <ul className="listingIngredients">
-                {listing.ingredients}
-            </ul>
             <p>
                 Instructions: {listing.instructions}
             </p>

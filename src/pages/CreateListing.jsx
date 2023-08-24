@@ -215,7 +215,7 @@ function CreateListings() {
             value={name}
             onChange={onMutate}
             maxLength='50'
-            minLength='5'
+            minLength='4'
             required
           />
           <label className='formLabel'>Description</label>
@@ -237,7 +237,7 @@ function CreateListings() {
             value={prep_time}
             onChange={onMutate}
             maxLength='32'
-            minLength='10'
+            minLength='5'
             required
           />
           
@@ -249,7 +249,7 @@ function CreateListings() {
             value={cook_time}
             onChange={onMutate}
             maxLength='32'
-            minLength='10'
+            minLength='5'
             required
           />
           <label className='formLabel'>Total Time</label>
@@ -260,7 +260,7 @@ function CreateListings() {
             value={total_time}
             onChange={onMutate}
             maxLength='32'
-            minLength='10'
+            minLength='5'
             required
           />
           <label className='formLabel'>Ingredients</label>

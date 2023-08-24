@@ -245,7 +245,7 @@ useEffect(() => {
             value={name}
             onChange={onMutate}
             maxLength='50'
-            minLength='5'
+            minLength='4'
             required
           />
           <label className='formLabel'>Description</label>
@@ -267,7 +267,7 @@ useEffect(() => {
             value={prep_time}
             onChange={onMutate}
             maxLength='32'
-            minLength='10'
+            minLength='5'
             required
           />
           
@@ -279,7 +279,7 @@ useEffect(() => {
             value={cook_time}
             onChange={onMutate}
             maxLength='32'
-            minLength='10'
+            minLength='5'
             required
           />
           <label className='formLabel'>Total Time</label>
@@ -290,7 +290,7 @@ useEffect(() => {
             value={total_time}
             onChange={onMutate}
             maxLength='32'
-            minLength='10'
+            minLength='5'
             required
           />
           <label className='formLabel'>Ingredients</label>

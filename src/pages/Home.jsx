@@ -2,7 +2,7 @@ import homepage from '../assets/jpg/homepage.jpg'
 
 function Home() {
     return (
-      <div className="explore">
+      <div className="profile">
       <header className='pageHeader'>
         <p>
           Home
