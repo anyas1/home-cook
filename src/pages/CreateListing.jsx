@@ -192,11 +192,11 @@ function CreateListings() {
             </button>
             <button
             type='button'
-            className={type === 'sides' ? 'formButtonActive' : 'formButton'}
+            className={type === 'snacks' ? 'formButtonActive' : 'formButton'}
             id='type'
-            value='sides'
+            value='snacks'
             onClick={onMutate}>
-              Sides
+              Snacks
             </button>
             <button
             type='button'
@@ -274,7 +274,6 @@ function CreateListings() {
             minLength='10'
             required
           />
-          <button id="additionalIngredient" type="submit" class="btn btn-primary">Add Ingredient</button>
           <label className='formLabel'>Instructions</label>
           <textarea
             className='formInputName'

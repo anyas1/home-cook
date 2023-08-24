@@ -222,11 +222,11 @@ useEffect(() => {
             </button>
             <button
             type='button'
-            className={type === 'sides' ? 'formButtonActive' : 'formButton'}
+            className={type === 'snacks' ? 'formButtonActive' : 'formButton'}
             id='type'
-            value='sides'
+            value='snacks'
             onClick={onMutate}>
-              Sides
+              Snacks
             </button>
             <button
             type='button'
