@@ -300,7 +300,7 @@ useEffect(() => {
             id='ingredients'
             value={ingredients}
             onChange={onMutate}
-            maxLength='500'
+            maxLength='2500'
             minLength='10'
             required
           />
@@ -311,7 +311,7 @@ useEffect(() => {
             id='instructions'
             value={instructions}
             onChange={onMutate}
-            maxLength='5000'
+            maxLength='10000'
             minLength='10'
             required
           />

@@ -86,6 +86,9 @@ function Listing() {
             <p>
                 Instructions: {listing.instructions}
             </p>
+            <p>
+                Additional Comments: {listing.comments}
+            </p>
             <br />
             <br />
             {auth.currentUser?.uid !== listing.userRef && (

@@ -299,12 +299,12 @@ button {
 
 @media (min-width: 1217px) {
   .explore {
-    margin-bottom: 10rem;
+    margin-bottom: 15rem;
   }
 }
 @media (max-height: 536) {
   .explore {
-    margin-bottom: 10rem;
+    margin-bottom: 15rem;
   }
 }
 
