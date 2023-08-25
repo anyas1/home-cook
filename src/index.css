@@ -142,9 +142,9 @@ button {
 .navbar {
   position: fixed;
   left: 0;
-  bottom: 0;
+  top: 0;
   right: 0;
-  height: 85px;
+  height: 60px;
   background-color: #ffffff;
   z-index: 1000;
   display: flex;
@@ -166,12 +166,50 @@ button {
   align-items: center;
 }
 
-.navbarListItem {
+.navbarListItemHome {
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-inline: 15px;
+  margin-left: 25px
 }
+
+.navbarListItemExplore {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: auto;
+  margin-left: 10px
+}
+
+.navbarListItemLogo {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-inline: 15px;
+  margin-bottom: 13px;
+}
+
+.navBarLogo {
+  min-height: 30px;
+  height: 1vw;
+  width: 100%;
+  display: flex;
+}
+
+.navbarListItemProfile {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 50px
+  /* padding: 3rem */
+}
+
 
 .navbarListItemName,
 .navbarListItemNameActive {
@@ -507,6 +545,7 @@ button {
   width: 3rem;
   height: 3rem;
   display: flex;
+  margin-top: 50px;
   justify-content: center;
   align-items: center;
 }
@@ -515,6 +554,10 @@ button {
   font-weight: 600;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+}
+
+.listingHeader {
+  padding-top: 60px;
 }
 
 .listingLocation {
