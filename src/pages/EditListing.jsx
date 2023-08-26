@@ -293,7 +293,7 @@ useEffect(() => {
             minLength='5'
             required
           />
-          <label className='formLabel'>Ingredients</label>
+          <label className='formLabel'>Ingredients (separate by comma)</label>
           <textarea
             className='formInputName'
             type='text'
