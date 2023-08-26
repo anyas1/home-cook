@@ -21,6 +21,7 @@ function App() {
   return (
     <>
     <Router>
+    <Navbar />
       <Routes>
         <Route path='/explore' element={<Explore />} />
         <Route path='/' element={<Home />} />
@@ -36,7 +37,6 @@ function App() {
         <Route path='/category/:categoryName/:listingId' element={<Listing />} />
         <Route path='/contact/:listerId' element={<Contact />} />
       </Routes>
-      <Navbar />
     </Router>
 
     <ToastContainer />

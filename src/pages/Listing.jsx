@@ -39,16 +39,19 @@ function Listing() {
         return <Spinner />
     }
 
-  return (
+return (
+    <div>
+    <header className="listingHeader">
+    </header>
     <main>
         <Swiper modules={[Navigation, Pagination, Scrollbar, A11y]} slidesPerView={1} pagination={{clickable: true}} navigation style={{ height: '300px' }}>
             {listing.imgUrls.map((url, index) => {
-               return ( <SwiperSlide key={index}>
+            return ( <SwiperSlide key={index}>
                     <div style={{background: `url(${listing.imgUrls[index]}) center no-repeat`, backgroundSize: 'cover'}} className="swiperSlideDiv">
 
                     </div>
                 </SwiperSlide>
-               )
+            )
 })}
         </Swiper>
 
@@ -59,7 +62,7 @@ function Listing() {
                 setShareLinkCopied(false)
             }, 2000)
         }}>
-            <img src={shareIcon} alt="" />
+            <img src={shareIcon} alt="shareicon" />
         </div>
 
         {shareLinkCopied && <p className="linkCopied">Link Copied</p>}
@@ -98,6 +101,7 @@ function Listing() {
             )}
         </div>
     </main>
+    </div>
   )
 }
 

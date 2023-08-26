@@ -49,7 +49,7 @@ function Slider() {
 
     return listings && (
         <>
-        <p className="exploreHeading">Recommended</p>
+        <p className="exploreHeading">Recently Uploaded</p>
 
         <Swiper modules={[Navigation, Pagination, Scrollbar, A11y]} slidesPerView={1} pagination={{clickable: true}} navigation style={{ height: '250px' }}>
             {listings.map(({data, id}) => (
