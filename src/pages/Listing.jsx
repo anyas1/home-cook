@@ -72,7 +72,7 @@ return (
                 {listing.name} - {listing.total_time}
             </p>
             <p className="listingLocation">
-               <em>{listing.description}</em>
+                <em>{listing.description}</em>
             </p>
             <p className="listingType">
                 {listing.type.charAt(0).toUpperCase() +
