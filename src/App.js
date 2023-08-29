@@ -38,7 +38,6 @@ function App() {
         <Route path='/contact/:listerId' element={<Contact />} />
       </Routes>
     </Router>
-
     <ToastContainer />
     </>
   );

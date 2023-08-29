@@ -11,6 +11,7 @@ import { getAuth } from "firebase/auth"
 import { db } from "../firebase.config"
 import Spinner from "../components/Spinner"
 import shareIcon from '../assets/svg/shareIcon.svg'
+import {v4 as uuidv4} from 'uuid'
 
 function Listing() {
     const [listing, setListing] = useState(null)
@@ -48,7 +49,6 @@ return (
             {listing.imgUrls.map((url, index) => {
             return ( <SwiperSlide key={index}>
                     <div style={{background: `url(${listing.imgUrls[index]}) center no-repeat`, backgroundSize: 'cover'}} className="swiperSlideDiv">
-
                     </div>
                 </SwiperSlide>
             )
@@ -86,16 +86,16 @@ return (
             </p>
             <p>
             <b>Ingredients:</b>
-                <ul>{listing.ingredients.split(', ').map(str => <p> • {str}</p>)}</ul>
             </p>
+            <ul>{listing.ingredients.split(', ').map(str => <p key={uuidv4()}> • {str}</p>)}</ul>
             <p>
                <b>Instructions:</b>
-               <ul>{listing.instructions}</ul>
             </p>
+            <ul>{listing.instructions}</ul>
             <p>
                <b>Additional Comments:</b>
-               <ul>{listing.comments}</ul>
             </p>
+            <ul>{listing.comments}</ul>
             <br />
             <br />
             {auth.currentUser?.uid !== listing.userRef && (
