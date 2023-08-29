@@ -72,10 +72,11 @@ return (
                 {listing.name} - {listing.total_time}
             </p>
             <p className="listingLocation">
-                {listing.description}
+                <em>{listing.description}</em>
             </p>
             <p className="listingType">
-                {listing.type}
+                {listing.type.charAt(0).toUpperCase() +
+                    listing.type.slice(1)}
             </p>
             <p>
                 Prep Time: {listing.prep_time}
@@ -84,13 +85,16 @@ return (
                 Cook Time: {listing.cook_time}
             </p>
             <p>
-            Ingredients:  {listing.ingredients}
+            <b>Ingredients:</b>
+                <ul>{listing.ingredients.split(', ').map(str => <p> • {str}</p>)}</ul>
             </p>
             <p>
-                Instructions: {listing.instructions}
+               <b>Instructions:</b>
+               <ul>{listing.instructions}</ul>
             </p>
             <p>
-                Additional Comments: {listing.comments}
+               <b>Additional Comments:</b>
+               <ul>{listing.comments}</ul>
             </p>
             <br />
             <br />
