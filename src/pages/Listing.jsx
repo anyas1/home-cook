@@ -12,6 +12,8 @@ import { db } from "../firebase.config"
 import Spinner from "../components/Spinner"
 import shareIcon from '../assets/svg/shareIcon.svg'
 import {v4 as uuidv4} from 'uuid'
+import FeedbackList from "../components/FeedbackList";
+import FeedbackForm from "../components/FeedbackForm";
 
 function Listing() {
     const [listing, setListing] = useState(null)
@@ -104,6 +106,8 @@ return (
                 </Link>
             )}
         </div>
+        <FeedbackForm />
+        <FeedbackList />
     </main>
     </div>
   )

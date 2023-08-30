@@ -531,7 +531,7 @@ button {
 }
 
 .listingDetails {
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
   border-style: solid;
   border-color: black;
   border-width: 2px;
@@ -899,4 +899,45 @@ button {
   margin-left: 1rem;
   font-size: 0.8rem;
   opacity: 0.75;
+}
+
+.card {
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  padding: 40px 50px;
+  margin:40px;
+  position: relative;
+}
+
+.num-display {
+  position: relative;
+  background: #f4f4f4;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 19px;
+  border: 1px #eee solid;
+  transition: 0.3s;
+}
+
+.rating li:hover,
+.num-display {
+  background: #8A2BE2;
+  color: #fff;
+}
+
+.num-display {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
+.feedbackHeader {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 2.5rem;
 }
