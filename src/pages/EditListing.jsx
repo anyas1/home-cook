@@ -83,7 +83,7 @@ useEffect(() => {
 
     if(images.length > 6) {
       setLoading(false)
-      toast.error('Max 6 Images')
+      toast.error('Max 6 Images - Limit 1 GB')
       return
     }
 
@@ -327,7 +327,7 @@ useEffect(() => {
           />
           <label className='formLabel'>Images</label>
           <p className='imagesInfo'>
-            The first image will be the cover (max 6).
+            The first image will be the cover (max 6 - limit 1GB).
           </p>
           <input
             className='formInputFile'
